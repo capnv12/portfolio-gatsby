@@ -7,10 +7,8 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
 import MainMenu from './MainMenu'
-import styled, {createGlobalStyle} from 'styled-components'
-import Header from "./header"
+import {createGlobalStyle} from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -21,10 +19,6 @@ const GlobalStyles = createGlobalStyle`
     padding:0;
 
   }
-`
-const layoutWrapper = styled.div`
-  width:360px;
-  margin: 0 auto;
 `
 
 const Layout = ({ children }) => (
