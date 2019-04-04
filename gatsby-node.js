@@ -10,8 +10,8 @@ const slash = require(`slash`)
 // Will create pages for WordPress pages (route : /{slug})
 // Will create pages for WordPress posts (route : /post/{slug})
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage,createRedirect } = actions
-  createRedirect({ fromPath: '/', toPath: '/home', redirectInBrowser:true, isPermanent: true });
+  const { createPage, createRedirect } = actions
+  createRedirect({ fromPath: '/', toPath: '/home', redirectInBrowser: true, isPermanent: true })
   return new Promise((resolve, reject) => {
     // The “graphql” function allows us to run arbitrary
     // queries against the local WordPress graphql schema. Think of
@@ -54,6 +54,7 @@ exports.createPages = ({ graphql, actions }) => {
           // Gatsby uses Redux to manage its internal state.
           // Plugins and sites can use functions like "createPage"
           // to interact with Gatsby.
+
           createPage({
             // Each page is required to have a `path` as well
             // as a template component. The `context` is
@@ -71,25 +72,25 @@ exports.createPages = ({ graphql, actions }) => {
       .then(() => {
         graphql(
           `
-          {
-            allWordpressWpPortfolio{
-              edges{
-                node{
-                  id
-                  title
-                  slug
-                  excerpt
-                  content
-                  featured_media {
-                    source_url
-                  }
-                  acf{
-                    portfolio_url
+            {
+              allWordpressWpPortfolio{
+                edges{
+                  node{
+                    id
+                    title
+                    slug
+                    excerpt
+                    content
+                    featured_media{
+                      source_url
+                    }
+                    acf{
+                      portfolio_url
+                    }
                   }
                 }
               }
             }
-          }
           `
         ).then(result => {
           if (result.errors) {
