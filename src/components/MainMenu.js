@@ -32,9 +32,9 @@ const MainMenu = () => (
           <div className="MainMenuInner">
             <SiteInfo/><Menu className="bm-menu">
                 {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>(
-                      <MenuItem className="bm-item-list" to={item.object_slug} key={item.title} activeClassName="active">
+                      <div className="bm-item-list" to={item.object_slug} key={item.title} activeClassName="active">
                       {item.title}
-                    </MenuItem>
+                    </div>
             ))}</Menu>
             </div>
         </div>
