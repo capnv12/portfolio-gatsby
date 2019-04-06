@@ -5,18 +5,8 @@ import SiteInfo from './SiteInfo'
 import { slide as Menu } from 'react-burger-menu'
 import './MainMenu.css'
 
-const MenuItem = styled(Link)`
-    color: white;
-    display:block;
-    padding: 8px 16px;
-`
-const MainMenuInner = styled.div`
-  max-width:960px;
-  margin 0 auto;
-  display:flex;
-  width:960px;
-  height:100%;
-`
+const MainMenuWrapper
+
 
 
 const MainMenu = () => (
