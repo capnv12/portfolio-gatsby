@@ -5,7 +5,6 @@ import SiteInfo from './SiteInfo'
 import { slide as Menu } from 'react-burger-menu'
 import './MainMenu.css'
 
-const MainMenuWrapper
 
 
 
@@ -29,7 +28,7 @@ const MainMenu = () => (
         }
       }
     `} render={props =>(
-        <MainMenuWrapper className="MainMenuWrapper">
+        <div className="MainMenuWrapper">
           <MainMenuInner className="MainMenuInner">
             <SiteInfo/><Menu className="bm-menu">
                 {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>(
@@ -38,7 +37,7 @@ const MainMenu = () => (
                     </MenuItem>
             ))}</Menu>
             </MainMenuInner>
-        </MainMenuWrapper>
+        </div>
     )}/>
 );
 
