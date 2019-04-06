@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import MainMenu from './MainMenu'
 import {createGlobalStyle} from 'styled-components'
+import './css/layout.css'
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -22,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
 `
 
 const Layout = ({ children }) => (
-  <div>
+  <div className="layout">
       <GlobalStyles />
       <MainMenu />
       <main>{children}</main>

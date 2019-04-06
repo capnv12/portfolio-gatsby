@@ -2,6 +2,8 @@ import React from 'react'
 import {graphql, StaticQuery, Link} from 'gatsby'
 import styled from 'styled-components'
 import SiteInfo from './SiteInfo'
+import { slide as Menu } from 'react-burger-menu'
+import './MainMenu.css'
 
 const MainMenuWrapper = styled.div`
     display:flex;
@@ -19,6 +21,8 @@ const MainMenuInner = styled.div`
   width:960px;
   height:100%;
 `
+
+
 const MainMenu = () => (
     <StaticQuery query={graphql`
     {
@@ -39,14 +43,14 @@ const MainMenu = () => (
         }
       }
     `} render={props =>(
-        <MainMenuWrapper>
-          <MainMenuInner>
-            <SiteInfo/>
-            {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>(
-                <MenuItem to={item.object_slug} key={item.title}>
-                    {item.title}
-                </MenuItem>
-            ))}
+        <MainMenuWrapper className="MainMenuWrapper">
+          <MainMenuInner className="MainMenuInner">
+            <SiteInfo/><Menu className="bm-menu">
+                {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>(
+                      <MenuItem className="bm-item-list" to={item.object_slug} key={item.title} activeClassName="active">
+                      {item.title}
+                    </MenuItem>
+            ))}</Menu>
             </MainMenuInner>
         </MainMenuWrapper>
     )}/>
