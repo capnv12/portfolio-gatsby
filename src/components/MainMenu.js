@@ -29,14 +29,14 @@ const MainMenu = () => (
       }
     `} render={props =>(
         <div className="MainMenuWrapper">
-          <MainMenuInner className="MainMenuInner">
+          <div className="MainMenuInner">
             <SiteInfo/><Menu className="bm-menu">
                 {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>(
                       <MenuItem className="bm-item-list" to={item.object_slug} key={item.title} activeClassName="active">
                       {item.title}
                     </MenuItem>
             ))}</Menu>
-            </MainMenuInner>
+            </div>
         </div>
     )}/>
 );
