@@ -73,6 +73,10 @@
   padding: 0.8em;
 }
 
+.bm-item-list:focus {
+  outline: none;
+}
+
 /* Individual item */
 .bm-item {
   display: inline-block;
