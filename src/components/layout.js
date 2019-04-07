@@ -12,19 +12,11 @@ import {createGlobalStyle} from 'styled-components'
 import './css/layout.css'
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-  body{
-    font-family: 'Open Sans', sans-serif;
-    margin:0;
-    padding:0;
-
-  }
 `
 
 const Layout = ({ children }) => (
   <div className="layout">
-      <GlobalStyles />
       <MainMenu />
       <main>{children}</main>
   </div>

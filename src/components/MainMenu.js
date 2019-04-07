@@ -1,8 +1,7 @@
 import React from 'react'
 import {graphql, StaticQuery, Link} from 'gatsby'
-import styled from 'styled-components'
 import SiteInfo from './SiteInfo'
-import { slide as Menu } from 'react-burger-menu'
+import { fallDown as Menu } from 'react-burger-menu'
 import './MainMenu.css'
 
 
@@ -30,7 +29,9 @@ const MainMenu = () => (
     `} render={props =>(
         <div className="MainMenuWrapper">
           <div className="MainMenuInner">
-            <SiteInfo/><Menu className="bm-menu">
+            <SiteInfo/><Menu noOverlay className="bm-menu"
+                    pageWrapId={'page-wrap'}
+                    outerContainerId={'outer-container'} right>
                 {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>(
                       <Link className="bm-item-list" to={item.object_slug} key={item.title} activeClassName="active">
                       {item.title}

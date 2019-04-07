@@ -2,20 +2,7 @@ import React from 'react'
 import {graphql, StaticQuery, Link} from 'gatsby'
 import styled from 'styled-components'
 
-const PortfolioItemsWrapper = styled.div`
-    display:flex;
-    justify-content:center;
-`
 
-const PortfolioIte = styled.div`
-    width: 300px;
-    border: 1px solid #efefef;
-    padding: 16px;
-    margin: 16px
-`
-const PortfolioImage = styled.img`
-    max-width:100%;
-`
 const PortfolioItems=() => {
     return(
         <StaticQuery query={graphql`
@@ -35,17 +22,17 @@ const PortfolioItems=() => {
               }
             }
           }
-        `}  render={props =>(<PortfolioItemsWrapper>{ props.allWordpressWpPortfolio.edges.map(PortfolioItem => (
+        `}  render={props =>(<div className="PortfolioItemsWrapper">{ props.allWordpressWpPortfolio.edges.map(PortfolioItem => (
             <div key={PortfolioItem.id}>
-                <PortfolioIte>
+                <div className="PortfolioIte">
                     <h2>{PortfolioItem.node.title}</h2>
-                    <PortfolioImage src={PortfolioItem.node.featured_media.source_url} alt="Thumbnail"/>
+                    {/* <img  classname="PortfolioImage" src={PortfolioItem.node.featured_media.source_url} alt="Thumbnail"/> */}
                     <div dangerouslySetInnerHTML={{__html: PortfolioItem.node.excerpt}}/>
                     <Link to={`/portfolio/${PortfolioItem.node.slug}`}>Read More</Link>
-                </PortfolioIte>
+                </div>
             </div>
         ))}
-        </PortfolioItemsWrapper>)}/>
+        </div>)}/>
     )
 }
 
